@@ -1,8 +1,10 @@
+enum MenuCategory { appetizer, entree, dessert, drink }
+
 class MenuItem {
   final int id;
   final String title;
   final String description;
-  final String category;
+  final MenuCategory category;
   final List<String> ingredients;
 
   MenuItem({

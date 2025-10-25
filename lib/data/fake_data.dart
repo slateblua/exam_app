@@ -7,7 +7,7 @@ class FakeData {
       title: 'Spaghetti Carbonara',
       description:
           'A classic Roman pasta dish made with eggs, hard cheese, cured pork, and black pepper.',
-      category: 'Pasta',
+      category: MenuCategory.entree,
       ingredients: [
         'Spaghetti',
         'Eggs',
@@ -21,7 +21,7 @@ class FakeData {
       title: 'Margherita Pizza',
       description:
           'A simple yet delicious pizza topped with San Marzano tomatoes, fresh mozzarella, basil, salt, and extra-virgin olive oil.',
-      category: 'Pizza',
+      category: MenuCategory.entree,
       ingredients: [
         'Pizza Dough',
         'San Marzano Tomatoes',
@@ -36,7 +36,7 @@ class FakeData {
       title: 'Caesar Salad',
       description:
           'A green salad of romaine lettuce and croutons dressed with lemon juice, olive oil, egg, Worcestershire sauce, anchovies, garlic, Dijon mustard, Parmesan cheese, and black pepper.',
-      category: 'Salads',
+      category: MenuCategory.appetizer,
       ingredients: [
         'Romaine Lettuce',
         'Croutons',
@@ -50,7 +50,7 @@ class FakeData {
       title: 'Tiramisu',
       description:
           'A coffee-flavoured Italian dessert. It is made of ladyfingers (savoiardi) dipped in coffee, layered with a whipped mixture of eggs, sugar, and mascarpone cheese, flavoured with cocoa.',
-      category: 'Desserts',
+      category: MenuCategory.dessert,
       ingredients: [
         'Ladyfingers',
         'Espresso',
@@ -66,7 +66,7 @@ class FakeData {
       title: 'Lasagna',
       description:
           'A traditional Italian dish made of stacked layers of pasta alternated with sauces and ingredients such as meats, vegetables, and cheese.',
-      category: 'Pasta',
+      category: MenuCategory.entree,
       ingredients: [
         'Lasagna Noodles',
         'Ground Beef or Pork',
@@ -83,7 +83,7 @@ class FakeData {
       title: 'Cheesecake',
       description:
           'A rich dessert consisting of a mixture of soft, fresh cheese, eggs, and sugar on a crust made from crushed cookies or graham crackers.',
-      category: 'Desserts',
+      category: MenuCategory.dessert,
       ingredients: [
         'Cream Cheese',
         'Sugar',
@@ -99,7 +99,7 @@ class FakeData {
       title: 'Minestrone Soup',
       description:
           'A thick soup of Italian origin made with vegetables, often with the addition of pasta or rice.',
-      category: 'Soups',
+      category: MenuCategory.entree,
       ingredients: [
         'Mixed Vegetables',
         'Beans',
@@ -114,7 +114,7 @@ class FakeData {
       title: 'Risotto alla Milanese',
       description:
           'A traditional Italian rice dish from Milan made with saffron, giving it a distinctive yellow color and rich flavor.',
-      category: 'Rice Dishes',
+      category: MenuCategory.appetizer,
       ingredients: [
         'Arborio Rice',
         'Saffron',
@@ -130,7 +130,7 @@ class FakeData {
       title: 'Bruschetta',
       description:
           'An antipasto consisting of grilled bread rubbed with garlic and topped with olive oil and salt, often with additional toppings like tomatoes, vegetables, beans, cured meat, or cheese.',
-      category: 'Appetizers',
+      category: MenuCategory.appetizer,
       ingredients: [
         'Baguette or Italian Bread',
         'Garlic',
@@ -146,7 +146,7 @@ class FakeData {
       title: 'Gelato',
       description:
           'An Italian-style ice cream that is denser and creamier than traditional ice cream, made with more milk and less cream.',
-      category: 'Desserts',
+      category: MenuCategory.dessert,
       ingredients: [
         'Milk',
         'Sugar',
@@ -160,7 +160,7 @@ class FakeData {
       title: 'Focaccia',
       description:
           'A flat oven-baked Italian bread similar in style and texture to pizza dough, often topped with herbs, olives, or other ingredients.',
-      category: 'Breads',
+      category: MenuCategory.appetizer,
       ingredients: [
         'Flour',
         'Yeast',
@@ -175,7 +175,7 @@ class FakeData {
       title: 'Caprese Salad',
       description:
           'A simple Italian salad made of sliced fresh mozzarella, tomatoes, and sweet basil, seasoned with salt and olive oil.',
-      category: 'Salads',
+      category: MenuCategory.appetizer,
       ingredients: [
         'Fresh Mozzarella',
         'Tomatoes',
@@ -190,7 +190,7 @@ class FakeData {
       title: 'Osso Buco',
       description:
           'A Milanese specialty of braised veal shanks cooked with vegetables, white wine, and broth, often served with gremolata and risotto.',
-      category: 'Main Courses',
+      category: MenuCategory.entree,
       ingredients: [
         'Veal Shanks',
         'Carrots',
@@ -207,7 +207,7 @@ class FakeData {
       title: 'Panna Cotta',
       description:
           'An Italian dessert made of sweetened cream thickened with gelatin and molded, often served with berries or caramel sauce.',
-      category: 'Desserts',
+      category: MenuCategory.dessert,
       ingredients: [
         'Heavy Cream',
         'Sugar',
@@ -222,7 +222,7 @@ class FakeData {
       title: 'Arancini',
       description:
           'Fried rice balls coated with breadcrumbs, typically filled with ragù, mozzarella, and peas.',
-      category: 'Appetizers',
+      category: MenuCategory.appetizer,
       ingredients: [
         'Cooked Rice',
         'Ragù Sauce',
