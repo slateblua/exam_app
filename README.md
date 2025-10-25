@@ -1,3 +1,3 @@
-# exam_app
+# Exam App
 
 Flutter app for exam
