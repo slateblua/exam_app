@@ -27,7 +27,7 @@ class MenuItemWidget extends StatelessWidget {
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: ListTile(
-        title: Text(item.title ?? "No title"),
+        title: Text(item.title),
         subtitle: Text('Description: ${item.description}'),
         trailing: const Icon(Icons.arrow_forward_ios),
         onTap: () {
@@ -85,6 +85,16 @@ class MenuListWidgetState extends State<MenuListWidget> {
                 ),
               ),
             ),
+          ),
+          Wrap(
+            spacing: 8.0,
+            children: MenuCategory.values
+                .map((category) => ActionChip(
+                    label: Text(category.name),
+                    onPressed: () {
+                      // Implement category filtering later
+                    }))
+                .toList(),
           ),
           Expanded(
             child: BlocBuilder<ListBloc, ListState>(
