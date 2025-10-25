@@ -72,6 +72,7 @@ class MenuListWidgetState extends State<MenuListWidget> {
             padding: const EdgeInsets.all(8.0),
             child: TextField(
               onChanged: (query) {
+                // Implement lazy search later
                 context.read<ListBloc>().add(SearchItems(query));
               },
               decoration: const InputDecoration(
