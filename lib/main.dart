@@ -1,4 +1,8 @@
+import 'package:exam_app/data/menu_repo.dart';
+import 'package:exam_app/presentation/list.dart';
+import 'package:exam_app/presentation/list_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,7 +34,10 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: BlocProvider(
+        create: (context) => ListBloc(MenuRepoImpl()),
+        child: MenuListWidget(),
+      ),
     );
   }
 }
