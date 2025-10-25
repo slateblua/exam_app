@@ -1,3 +1,5 @@
+import '../data/menu_item.dart';
+
 abstract class ListState {
 
 }
@@ -7,7 +9,7 @@ class ListInitialState extends ListState {
 }
 
 class ListItemsLoaded extends ListState {
-  List<String> items;
+  List<MenuItem> items;
 
   ListItemsLoaded(this.items);
 }

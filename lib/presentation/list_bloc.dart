@@ -1,3 +1,4 @@
+import 'package:exam_app/data/menu_item.dart';
 import 'package:exam_app/data/menu_repo.dart';
 import 'package:exam_app/presentation/list_event.dart';
 import 'package:exam_app/presentation/list_state.dart';
@@ -9,7 +10,7 @@ class ListBloc extends Bloc<ListEvent, ListState> {
   final MenuRepoImpl repo;
 
   ListBloc(this.repo) : super(ListInitialState()) {
-    List<String> items = [];
+    List<MenuItem> items = [];
 
     on<LoadItems>((event, emit) async {
       page = 0;

@@ -4,6 +4,8 @@ import 'package:exam_app/presentation/list_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../data/menu_item.dart';
+
 class MenuListWidget extends StatefulWidget {
   const MenuListWidget({super.key});
 
@@ -12,6 +14,25 @@ class MenuListWidget extends StatefulWidget {
     return MenuListWidgetState();
   }
 }
+
+class MenuItemWidget extends StatelessWidget {
+  final MenuItem item;
+
+  const MenuItemWidget({super.key, required this.item});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      child: ListTile(
+        title: Text(item.title ?? "No title"),
+        subtitle: Text('Description: ${item.description}'),
+        trailing: const Icon(Icons.arrow_forward_ios),
+      ),
+    );
+  }
+}
+
 
 class MenuListWidgetState extends State<MenuListWidget> {
   final ScrollController controller = ScrollController();
@@ -40,7 +61,7 @@ class MenuListWidgetState extends State<MenuListWidget> {
               controller: controller,
               itemCount: state.items.length,
               itemBuilder: (context, index) {
-                return ListTile(title: Text("Todo"));
+                return MenuItemWidget(item: state.items[index]);
               },
             );
           }
