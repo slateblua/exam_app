@@ -33,5 +33,19 @@ class ListBloc extends Bloc<ListEvent, ListState> {
         emit(ListItemsLoaded(items));
       }
     });
+
+    on<SearchItems> ((event, emit) async {
+      final query = event.query.toLowerCase();
+
+      final filteredItems = items.where((item) {
+        final title = item.title.toLowerCase() ?? '';
+        final description = item.description.toLowerCase() ?? '';
+        return title.contains(query) || description.contains(query);
+      }).toList();
+
+      if (!emit.isDone) {
+        emit(ListItemsLoaded(filteredItems));
+      }
+    });
   }
 }

@@ -1,3 +1,5 @@
+import 'package:exam_app/data/menu_repo.dart';
+import 'package:exam_app/presentation/details.dart';
 import 'package:exam_app/presentation/list_bloc.dart';
 import 'package:exam_app/presentation/list_event.dart';
 import 'package:exam_app/presentation/list_state.dart';
@@ -28,6 +30,15 @@ class MenuItemWidget extends StatelessWidget {
         title: Text(item.title ?? "No title"),
         subtitle: Text('Description: ${item.description}'),
         trailing: const Icon(Icons.arrow_forward_ios),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              // no dependency injection used here for simplicity
+              builder: (context) => DetailsScreen(itemId: item.id, menuRepo: MenuRepoImpl()),
+            ),
+          );
+        },
       ),
     );
   }
@@ -36,6 +47,7 @@ class MenuItemWidget extends StatelessWidget {
 
 class MenuListWidgetState extends State<MenuListWidget> {
   final ScrollController controller = ScrollController();
+  String? _selectedCategory;
 
   @override
   void initState() {
@@ -54,19 +66,43 @@ class MenuListWidgetState extends State<MenuListWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Menu Items')),
-      body: BlocBuilder<ListBloc, ListState>(
-        builder: (BuildContext context, ListState state) {
-          if (state is ListItemsLoaded) {
-            return ListView.builder(
-              controller: controller,
-              itemCount: state.items.length,
-              itemBuilder: (context, index) {
-                return MenuItemWidget(item: state.items[index]);
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              onChanged: (query) {
+                context.read<ListBloc>().add(SearchItems(query));
               },
-            );
-          }
-          return const Center(child: CircularProgressIndicator());
-        },
+              decoration: const InputDecoration(
+                labelText: "Search",
+                hintText: "Search",
+                prefixIcon: Icon(Icons.search),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(25.0),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Expanded(
+            child: BlocBuilder<ListBloc, ListState>(
+              builder: (BuildContext context, ListState state) {
+                if (state is ListItemsLoaded) {
+                  return ListView.builder(
+                    controller: controller,
+                    itemCount: state.items.length,
+                    itemBuilder: (context, index) {
+                      return MenuItemWidget(item: state.items[index]);
+                    },
+                  );
+                }
+                return const Center(child: CircularProgressIndicator());
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
