@@ -47,7 +47,6 @@ class MenuItemWidget extends StatelessWidget {
 
 class MenuListWidgetState extends State<MenuListWidget> {
   final ScrollController controller = ScrollController();
-  String? _selectedCategory;
 
   @override
   void initState() {
